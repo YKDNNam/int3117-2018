@@ -28,8 +28,7 @@ public class BigInteger
         bigInt[0] = n;
         bigInt[1] = 0;
         while (initlong > 0) {
-            int i = 1;
-            bigInt[s-i] = (int) (initlong%1000000000);
+            bigInt[s-1] = (int) (initlong%1000000000);
             initlong = (int) Math.floor(initlong/1000000000);
         }
     }
@@ -84,9 +83,9 @@ public class BigInteger
             s = s.substring(1);
         else
             s = "-".concat(s);
-        BigInteger New = new BigInteger(s);
-        New = subtract(New);
-        return New;
+        BigInteger newBigInteger = new BigInteger(s);
+        newBigInteger = subtract(newBigInteger);
+        return newBigInteger;
     }
 
     public BigInteger subtract(BigInteger other) {
@@ -152,8 +151,8 @@ public class BigInteger
             result = String.format("%d",s);
         else
             result = String.format("%d",s).concat(result);
-        BigInteger New = new BigInteger(result);
-        return New;
+        BigInteger newBigInteger = new BigInteger(result);
+        return newBigInteger;
     }
 
     public int compareTo (BigInteger other) {
@@ -166,7 +165,7 @@ public class BigInteger
     }
 
     public BigInteger clone() {
-        BigInteger New = new BigInteger(toString());
-        return New;
+        BigInteger newBigInteger = new BigInteger(toString());
+        return newBigInteger;
     }
 }
